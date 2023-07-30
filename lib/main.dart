@@ -51,7 +51,6 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
-
     loadModel();
     initCamera();
   }
@@ -70,10 +69,10 @@ class _HomeState extends State<Home> {
   }
 
   Future loadModel() async {
-    Tflite.close();
+    await Tflite.close();
     await Tflite.loadModel(
-      model: 'assets/model.tflite',
-      labels: 'assets/labels.txt',
+      model: 'assets/ssd_mobilenet.tflite',
+      labels: 'assets/ssd_mobilenet.txt',
     );
   }
 
